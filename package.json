@@ -1,0 +1,28 @@
+{
+	"name": "parallel-queue-flow",
+	"description": "A queue-flow constructor function like sloppy-queue-flow, but less sloppy!",
+	"keywords": ["queue-flow", "queueflow", "flow", "queues", "async", "parallel", "parallel-queue-flow"],
+	"homepage": "https://github.com/dfellis/parallel-queue-flow",
+	"author": "David Ellis",
+	"version": "0.0.1",
+	"bugs": "https://github.com/dfellis/parallel-queue-flow/issues",
+	"repository": {
+		"type": "git",
+		"url": "git://github.com:dfellis/parallel-queue-flow.git"
+	},
+	"main": "./lib/parallel-queue-flow",
+	"dependencies": {},
+	"devDependencies": {
+		"nodeunit": "*",
+		"docco": "*",
+		"uglify-js": "*",
+		"jscoverage": ">=0.2.5"
+	},
+	"engines": {
+		"node": ">=0.6"
+	},
+	"scripts": {
+		"prepublish": "./prepublish.sh",
+		"test": "nodeunit ./test/test.js"
+	}
+}
