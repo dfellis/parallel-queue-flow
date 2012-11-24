@@ -11,12 +11,15 @@
 		"url": "git://github.com:dfellis/parallel-queue-flow.git"
 	},
 	"main": "./lib/parallel-queue-flow",
-	"dependencies": {},
+	"dependencies": {
+		"queue-flow": ">=0.5.28"
+	},
 	"devDependencies": {
 		"nodeunit": "*",
 		"docco": "*",
 		"uglify-js": "*",
-		"jscoverage": ">=0.2.5"
+		"jscoverage": ">=0.2.5",
+		"complexity-report": "*"
 	},
 	"engines": {
 		"node": ">=0.6"
