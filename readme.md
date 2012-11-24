@@ -1,5 +1,7 @@
 # parallel-queue-flow
 
+[![Build Status](https://secure.travis-ci.org/dfellis/parallel-queue-flow.png?branch=master)](https://travis-ci.org/dfellis/parallel-queue-flow)
+
 ## Like [sloppy-queue-flow](https://github.com/dfellis/sloppy-queue-flow), but better!
 
 parallel-queue-flow is a [queue-flow](http://dfellis.github.com/queue-flow) constructor function that alters the queue-flow semantics to allow your processing steps to run in "parallel". Specifically, execute multiple calls to your processing steps in the Javascript event loop, so if your code is mostly calling external resources (AJAX calls, Node FS or HTTP calls, etc), then you will get a performance boost.
