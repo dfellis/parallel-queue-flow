@@ -4,7 +4,7 @@
 	"keywords": ["queue-flow", "queueflow", "flow", "queues", "async", "parallel", "parallel-queue-flow"],
 	"homepage": "https://github.com/dfellis/parallel-queue-flow",
 	"author": "David Ellis",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"bugs": "https://github.com/dfellis/parallel-queue-flow/issues",
 	"repository": {
 		"type": "git",
