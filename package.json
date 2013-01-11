@@ -4,14 +4,14 @@
 	"keywords": ["queue-flow", "queueflow", "flow", "queues", "async", "parallel", "parallel-queue-flow"],
 	"homepage": "https://github.com/dfellis/parallel-queue-flow",
 	"author": "David Ellis",
-	"version": "0.1.1",
+	"version": "0.1.2",
 	"bugs": "https://github.com/dfellis/parallel-queue-flow/issues",
 	"repository": {
 		"type": "git",
 		"url": "git://github.com:dfellis/parallel-queue-flow.git"
 	},
 	"main": "./lib/parallel-queue-flow",
-	"dependencies": {
+	"peerDependencies": {
 		"queue-flow": ">=0.5.28"
 	},
 	"devDependencies": {
@@ -22,7 +22,7 @@
 		"complexity-report": "*"
 	},
 	"engines": {
-		"node": ">=0.6"
+		"node": ">=0.8.17"
 	},
 	"scripts": {
 		"prepublish": "./prepublish.sh",
