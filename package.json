@@ -11,16 +11,18 @@
 		"url": "git://github.com:dfellis/parallel-queue-flow.git"
 	},
 	"main": "./lib/parallel-queue-flow",
-	"peerDependencies": {
-		"queue-flow": ">=0.5.28 <0.6.0"
-	},
+    "dependencies": {
+        "is-async": "0.0.2",
+        "async-cancelable-events": "0.0.3",
+        "queue-flow": "0.6.5"
+    },
 	"devDependencies": {
 		"nodeunit": "*",
 		"docco": "*",
 		"uglify-js": "*",
-		"jscoverage": "0.2.5",
+		"jscoverage": "*",
 		"complexity-report": "*",
-        "queue-flow": ">=0.5.28 <0.6.0"
+        "browserify": "*"
 	},
 	"engines": {
 		"node": ">=0.6.3"

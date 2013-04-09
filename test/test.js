@@ -1,15 +1,17 @@
 var fs = require('fs');
-var jscoverage = require('jscoverage');
 var cr = require('complexity-report');
 var q = require('queue-flow');
-var require = jscoverage.require(module);
-var parallel = require('../lib/parallel-queue-flow', true);
+var jscoverage = require('jscoverage');
+jscoverage.enableCoverage(true);
+var parallel = jscoverage.require(module, '../lib/parallel-queue-flow');
 
 exports.parallel = function(test) {
 	test.expect(4);
 	test.ok(!!parallel());
 	test.ok(!!parallel(3));
-	test.ok(!!(new parallel(3)()));
+    var p3 = parallel(3);
+    var p = new p3();
+    test.ok(!!p.on);
 	test.ok(!!q(undefined, parallel(3)).map);
 	test.done();
 };
@@ -24,6 +26,23 @@ exports.map = function(test) {
 			test.equal([2, 4, 6, 8, 10, 12, 14, 16, 18].toString(), arr.toString());
 			test.done();
 		});
+};
+
+exports.testParallelClosing = function(test) {
+    test.expect(1);
+    q(['.'], parallel(4))
+        .node(fs.readdir, 'error')
+        .flatten().close()
+        .map(function(val, callback) {
+            setTimeout(callback.bind(this, val), 20 * Math.floor(Math.random()*11));
+        })
+        .map(function(filename) {
+            return ['./' + filename, 'utf8'];
+        })
+        .toArray(function(result) {
+            test.ok(result instanceof Array);
+            test.done();
+        });
 };
 
 exports.jscoverage = function(test) {
