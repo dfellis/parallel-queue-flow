@@ -45,6 +45,34 @@ exports.testParallelClosing = function(test) {
         });
 };
 
+exports.unnamedQueueProperlyClosed = function(test) {
+    test.expect(3);
+    var cmd = {test1: "value1", test2: "value2"};
+
+    q([cmd, cmd, cmd, cmd], parallel(4))
+        .node(function(c, cb){
+            setTimeout(function(){
+                cb(null, c);
+            }, 1000);
+        }, 'error')
+        .node(function(c, cb){
+            setTimeout(function(){
+                cb(null, c);
+            }, 1000);
+        }, 'error')
+        .node(function(c, cb){
+            setTimeout(function(){
+                cb(null, c);
+            }, 1000);
+        }, 'error')
+        .toArray(function(result) {
+            test.ok(result instanceof Array, 'received an array as expected');
+            test.equal(result.length, 4, 'received all 4 "cmd" objects');
+            test.equal(result[0], cmd, 'the array has the original "cmd" object in it');
+            test.done();
+        });
+};
+
 exports.jscoverage = function(test) {
 	test.expect(1);
 	var file, tmp, source, total, touched;
